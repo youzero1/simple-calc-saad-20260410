@@ -1,0 +1,260 @@
+.main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  color: #e0e0e0;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.calculator {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.display {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.2rem;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.expression {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.9rem;
+  font-weight: 300;
+  min-height: 1.2em;
+}
+
+.currentValue {
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  word-break: break-all;
+  text-align: right;
+}
+
+.errorMsg {
+  color: #ff6b6b;
+  font-size: 0.75rem;
+  text-align: right;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 0;
+  height: 68px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btnClear {
+  background: rgba(255, 107, 107, 0.2);
+  border-color: rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
+}
+
+.btnClear:hover {
+  background: rgba(255, 107, 107, 0.35);
+}
+
+.btnOperator {
+  background: rgba(100, 181, 246, 0.15);
+  border-color: rgba(100, 181, 246, 0.25);
+  color: #64b5f6;
+  font-size: 1.4rem;
+}
+
+.btnOperator:hover {
+  background: rgba(100, 181, 246, 0.28);
+}
+
+.btnEquals {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btnEquals:hover {
+  background: linear-gradient(135deg, #7b8fef 0%, #8a5cb0 100%);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.historyContainer {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.historyTitle {
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+.noHistory {
+  color: rgba(255, 255, 255, 0.35);
+  text-align: center;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.historyList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.historyList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.historyList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+
+.historyList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.2s;
+}
+
+.historyItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.historyExpression {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.historyEquals {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.85rem;
+}
+
+.historyResult {
+  color: #64b5f6;
+  font-size: 0.95rem;
+  font-weight: 500;
+  min-width: 60px;
+  text-align: right;
+}
+
+.historyDate {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.7rem;
+  min-width: 60px;
+  text-align: right;
+}
+
+@media (max-width: 440px) {
+  .main {
+    padding: 1rem;
+  }
+
+  .btn {
+    height: 58px;
+    font-size: 1.1rem;
+  }
+
+  .currentValue {
+    font-size: 2rem;
+  }
+
+  .historyDate {
+    display: none;
+  }
+}
